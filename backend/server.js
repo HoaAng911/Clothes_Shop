@@ -34,7 +34,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //     next();
 // });
 
-// Định nghĩa các routes
+
 app.use("/api/v1/auth", authRoutes);   // Auth routes (Đăng ký, đăng nhập...)
 app.use("/api/v1/product", productRoute);  // Product routes (Quản lý sản phẩm)
 app.use('/api/v1/upload', uploadRoutes);
