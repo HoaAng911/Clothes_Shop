@@ -1,33 +1,31 @@
-// src/store/useUploadStore.js
-import create from 'zustand';
-import axios from 'axios';
+import {create} from 'zustand';
+import axiosInstance from './axiosInstance';
 
 const useUploadStore = create((set) => ({
-    imageUrl: null,   // URL của ảnh đã tải lên
-    loading: false,   // Trạng thái khi đang tải ảnh lên
-    error: null,      // Lỗi nếu có
+    imageUrl: null,
+    loading: false,
+    error: null,
+
     uploadImage: async (imageFile) => {
-        set({ loading: true, error: null }); // Đặt trạng thái đang tải lên
+        set({ loading: true, error: null });
 
         const formData = new FormData();
-        formData.append('image', imageFile); // Thêm ảnh vào FormData
+        formData.append('image', imageFile);
 
         try {
-            // Gửi yêu cầu upload ảnh lên backend
-            const response = await axios.post('http://localhost:5000/api/v1/product/upload', formData, {
+            const response = await axiosInstance.post('/product/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
             if (response.data.success) {
-                // Nếu upload thành công, lưu URL ảnh vào store
                 set({ imageUrl: response.data.imageUrl, loading: false });
             } else {
                 set({ error: 'Lỗi tải ảnh lên', loading: false });
             }
         } catch (err) {
-            // Nếu có lỗi trong quá trình upload
+            console.error('Upload error:', err);
             set({ error: 'Lỗi tải ảnh lên', loading: false });
         }
     },

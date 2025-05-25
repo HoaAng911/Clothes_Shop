@@ -1,33 +1,27 @@
 import React, { createContext, useState } from 'react';
+import axiosInstance from '../axiosInstance'; // đảm bảo đúng đường dẫn
 
 // Tạo context
 export const OrderContext = createContext();
 
 export const OrderProvider = ({ children }) => {
-    const [orders, setOrders] = useState([]); // lưu danh sách đơn hàng
+    const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // Hàm tạo đơn hàng
     const createOrder = async (orderData) => {
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:5000/api/orders", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(orderData),
-            });
+            const res = await axiosInstance.post('/orders', orderData); // dùng axiosInstance
 
-            const data = await res.json();
-            if (res.ok) {
-                setOrders(prev => [...prev, data]); // Thêm vào danh sách đơn hàng
-                return { success: true, data };
+            if (res.status === 201 || res.status === 200) {
+                setOrders(prev => [...prev, res.data]);
+                return { success: true, data: res.data };
             } else {
-                return { success: false, message: data.message };
+                return { success: false, message: res.data.message || 'Đơn hàng không hợp lệ' };
             }
         } catch (err) {
-            return { success: false, message: "Có lỗi khi gửi đơn hàng" };
+            console.error('Lỗi gửi đơn hàng:', err);
+            return { success: false, message: err.response?.data?.message || 'Có lỗi khi gửi đơn hàng' };
         } finally {
             setLoading(false);
         }
