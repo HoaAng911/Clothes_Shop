@@ -9,6 +9,11 @@ const productRoute = require('./routes/product.route');
 const uploadRoutes = require('./routes/upload.route');
 const orderRoutes = require('./routes/order.route');
 const cartRoutes = require('./routes/cart.route'); // Đường dẫn cho giỏ hàng
+console.log('authRoutes typeof:', typeof authRoutes);
+console.log('productRoute typeof:', typeof productRoute);
+console.log('uploadRoutes typeof:', typeof uploadRoutes);
+console.log('orderRoutes typeof:', typeof orderRoutes);
+console.log('cartRoutes typeof:', typeof cartRoutes);
 
 // Khởi tạo ứng dụng Express
 const app = express();
@@ -34,6 +39,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //     next();
 // });
 
+console.log('authRoutes:', authRoutes);
+console.log('productRoute:', productRoute);
+console.log('uploadRoutes:', uploadRoutes);
+console.log('orderRoutes:', orderRoutes);
+console.log('cartRoutes:', cartRoutes);
 
 app.use("/api/v1/auth", authRoutes);   // Auth routes (Đăng ký, đăng nhập...)
 app.use("/api/v1/product", productRoute);  // Product routes (Quản lý sản phẩm)
