@@ -1,52 +1,44 @@
 const { User } = require("../models/user.model.js");
 const bcrypt = require("bcryptjs");
 const { generateTokenAndSetCookie } = require("../ultis/generateToken.js");
+const jwt = require("jsonwebtoken"); // Đảm bảo đã import jsonwebtoken
 
+
+console.log('generateTokenAndSetCookie typeof:', typeof generateTokenAndSetCookie);
 // =============================
 // 📌 Đăng ký tài khoản mới
-// =============================
+// ============================= 
 const registerUser = async (req, res) => {
     try {
         console.log("📦 Dữ liệu nhận từ frontend:", req.body);
 
         const { email, password, username } = req.body;
 
-        // Kiểm tra dữ liệu đầu vào
         if (!email || !password || !username) {
             return res.status(400).json({ message: "Vui lòng điền đầy đủ thông tin." });
         }
 
-        // Kiểm tra trùng email
-        const emailExists = await User.findOne({ email });
-        if (emailExists) {
-            return res.status(400).json({ message: "Email đã được sử dụng." });
+        const userExists = await User.findOne({ $or: [{ email }, { username }] });
+        if (userExists) {
+            return res.status(400).json({
+                message: userExists.email === email ? "Email đã được sử dụng." : "Username đã tồn tại."
+            });
         }
 
-        // Kiểm tra trùng username
-        const usernameExists = await User.findOne({ username });
-        if (usernameExists) {
-            return res.status(400).json({ message: "Username đã tồn tại." });
-        }
-
-        // Mã hóa mật khẩu
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Tạo user mới
         const newUser = new User({
             email,
             username,
             password: hashedPassword,
-            avatar: "/default-avatar.png", // ảnh mặc định
+            avatar: "/default-avatar.png",
         });
 
-        console.log("Tạo user mới:", newUser);
         await newUser.save();
-        console.log("Đã lưu user thành công");
 
-        // Tạo token và lưu vào cookie
+        // Tạo token và thiết lập cookie cho người dùng
         generateTokenAndSetCookie(newUser._id, res);
 
-        // Trả về thông tin user (ẩn password)
         res.status(201).json({ success: true, user: { ...newUser._doc, password: "" } });
     } catch (err) {
         console.log("Register error:", err.message);
@@ -56,24 +48,32 @@ const registerUser = async (req, res) => {
 
 // =============================
 // 📌 Đăng nhập
-// =============================
+// ============================= 
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Tìm user theo email
+        // Tìm người dùng theo email
         const user = await User.findOne({ email });
         if (!user) return res.status(404).json({ message: "Email không tồn tại." });
 
-        // So sánh mật khẩu
+        // Kiểm tra mật khẩu
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ message: "Sai mật khẩu." });
 
-        // Tạo token và lưu cookie
-        generateTokenAndSetCookie(user._id, res);
+        // Tạo token
+        const token = jwt.sign(
+            { id: user._id, role: user.role }, // Payload
+            process.env.JWT_SECRET,           // Secret key
+            { expiresIn: "1d" }               // Thời gian hết hạn
+        );
 
-        // Trả về thông tin user (ẩn password)
-        res.status(200).json({ success: true, user: { ...user._doc, password: "" } });
+        // Trả về token và thông tin người dùng
+        res.status(200).json({
+            success: true,
+            token, // Token được trả về ở đây
+            user: { ...user._doc, password: "" } // Không trả về mật khẩu
+        });
     } catch (err) {
         console.log("Login error:", err.message);
         res.status(500).json({ message: "Đăng nhập thất bại." });
@@ -82,10 +82,9 @@ const loginUser = async (req, res) => {
 
 // =============================
 // 📌 Đăng xuất
-// =============================
+// ============================= 
 const logoutUser = (req, res) => {
     try {
-        // Xóa cookie jwt
         res.clearCookie("jwt");
         res.status(200).json({ success: true, message: "Đăng xuất thành công." });
     } catch (err) {
@@ -94,11 +93,10 @@ const logoutUser = (req, res) => {
 };
 
 // =============================
-// 📌 Kiểm tra xác thực người dùng (checkAuth)
-// =============================
+// 📌 Kiểm tra xác thực người dùng
+// ============================= 
 const checkAuth = (req, res) => {
     try {
-        // req.user được gán trong middleware protectRoute
         res.status(200).json({ success: true, user: req.user });
     } catch (err) {
         res.status(500).json({ message: "Lỗi xác thực." });
@@ -106,15 +104,15 @@ const checkAuth = (req, res) => {
 };
 
 // =============================
-// 📌 Cập nhật thông tin người dùng
-// =============================
+// 📌 Cập nhật thông tin người dùng (có địa chỉ)
+// ============================= 
 const updateUser = async (req, res) => {
     try {
-        const userId = req.user.id; // Lấy user từ middleware xác thực
-        const { username, email, phone, password, avatar } = req.body;
+        const userId = req.user.id;
+        const { username, email, phone, password, avatar, address } = req.body;
 
-        // Tạo đối tượng cập nhật động
         const updates = {};
+
         if (username) updates.username = username;
         if (email) updates.email = email;
         if (phone) updates.phone = phone;
@@ -124,10 +122,24 @@ const updateUser = async (req, res) => {
             updates.password = await bcrypt.hash(password, 10);
         }
 
-        // Cập nhật user
+        // Cập nhật địa chỉ chỉ khi có thông tin
+        if (address && typeof address === "object") {
+            const { street, city, district, ward, zipCode } = address;
+            updates.address = {
+                street: street || "",
+                city: city || "",
+                district: district || "",
+                ward: ward || "",
+                zipCode: zipCode || ""
+            };
+        }
+
         const updatedUser = await User.findByIdAndUpdate(userId, updates, { new: true });
 
-        res.status(200).json({ success: true, user: { ...updatedUser._doc, password: "" } });
+        res.status(200).json({
+            success: true,
+            user: { ...updatedUser._doc, password: "" }
+        });
     } catch (err) {
         console.log("Update error:", err.message);
         res.status(500).json({ message: "Cập nhật thất bại." });

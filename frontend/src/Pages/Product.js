@@ -1,37 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Breadcrum from '../Components/Breadcrums/Breadcrum';
 import ProductDisplay from '../Components/ProductDisplay/ProductDisplay';
-import DescriptionBox from '../Components/DescriptionBox/DescriptionBox';
-import RelatedProducts from '../Components/RelatedProducts/RelatedProducts';
-import useProductStore from '../store/useProductStore';
 
 const Product = () => {
-    const { productId } = useParams();
-    const {
-        product,
-        loading,
-        error,
-        fetchProductById,
-    } = useProductStore();
+    const { productId } = useParams(); // Lấy productId từ URL
+    const [validProductId, setValidProductId] = useState(null);
 
     useEffect(() => {
         if (productId) {
-            console.log("productId từ URL:", productId);
-            fetchProductById(productId);
+            console.log('Product useEffect, productId:', productId);
+            setValidProductId(productId); // Gán vào state để chắc chắn không bị undefined
         }
-    }, [productId, fetchProductById]);
+    }, [productId]);
 
-    if (loading) return <div>Đang tải sản phẩm...</div>;
-    if (error) return <div>{error}</div>;
-    if (!product) return <div>Không tìm thấy sản phẩm!</div>;
+    if (!validProductId) {
+        return <div>Đang tải sản phẩm...</div>; // Tránh render khi chưa có productId
+    }
 
     return (
         <div>
-            <Breadcrum product={product} />
-            <ProductDisplay product={product} />
-            <DescriptionBox />
-            <RelatedProducts />
+            <ProductDisplay productId={validProductId} />
         </div>
     );
 };

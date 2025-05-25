@@ -4,11 +4,19 @@ import Item from '../Item/Item';
 import useProductStore from '../../store/useProductStore';
 
 const NewCollections = () => {
-    const { products, fetchProductsByCategory, loading, error } = useProductStore();
+    const { newCollection, fetchNewCollection, loading, error } = useProductStore();
 
     useEffect(() => {
-        fetchProductsByCategory("kid"); // Giả sử "new" là danh mục cho các bộ sưu tập mới
-    }, [fetchProductsByCategory]);
+        console.log("Fetching new collection...");
+        fetchNewCollection(); // Gọi API để lấy bộ sưu tập mới
+    }, [fetchNewCollection]);
+
+    // Log các giá trị để kiểm tra
+    useEffect(() => {
+        console.log("New Collection Data:", newCollection);
+        console.log("Loading State:", loading);
+        console.log("Error State:", error);
+    }, [newCollection, loading, error]);
 
     return (
         <div className='new-collections'>
@@ -19,8 +27,8 @@ const NewCollections = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             <div className="collections">
-                {products.length > 0 ? (
-                    products.map((item) => (
+                {newCollection.length > 0 ? (
+                    newCollection.map((item) => (
                         <Item
                             key={item._id}
                             id={item._id}

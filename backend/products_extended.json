@@ -1,0 +1,992 @@
+[
+  {
+    "id": 1,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "women",
+    "image": "product_1.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_1",
+    "description": "High-quality material and unique design.",
+    "stock": 80,
+    "brand": "Uniqlo",
+    "color": "red",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-02-13T12:05:42.821888Z",
+    "updated_at": "2025-03-04T12:05:42.821888Z"
+  },
+  {
+    "id": 2,
+    "name": "Zipper Fly Jeans",
+    "category": "women",
+    "image": "product_2.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_2",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 9,
+    "brand": "Uniqlo",
+    "color": "black",
+    "size": [
+      "L",
+      "XL"
+    ],
+    "rating": 4.3,
+    "created_at": "2025-04-03T12:05:42.821888Z",
+    "updated_at": "2025-04-04T12:05:42.821888Z"
+  },
+  {
+    "id": 3,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "women",
+    "image": "product_3.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_3",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 76,
+    "brand": "LV",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 4.2,
+    "created_at": "2025-03-11T12:05:42.821888Z",
+    "updated_at": "2025-03-18T12:05:42.821888Z"
+  },
+  {
+    "id": 4,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_4.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_4",
+    "description": "Trendy outfit that suits all seasons.",
+    "stock": 15,
+    "brand": "Uniqlo",
+    "color": "blue",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 3.7,
+    "created_at": "2025-01-07T12:05:42.821888Z",
+    "updated_at": "2025-01-14T12:05:42.821888Z"
+  },
+  {
+    "id": 5,
+    "name": "Zipper Fly Jeans",
+    "category": "men",
+    "image": "product_5.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_5",
+    "description": "High-quality material and unique design.",
+    "stock": 89,
+    "brand": "H&M",
+    "color": "white",
+    "size": [
+      "L",
+      "XL"
+    ],
+    "rating": 4.4,
+    "created_at": "2025-04-03T12:05:42.821888Z",
+    "updated_at": "2025-04-20T12:05:42.821888Z"
+  },
+  {
+    "id": 6,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "men",
+    "image": "product_6.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_6",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 43,
+    "brand": "H&M",
+    "color": "white",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 4.8,
+    "created_at": "2025-02-15T12:05:42.821888Z",
+    "updated_at": "2025-02-16T12:05:42.821888Z"
+  },
+  {
+    "id": 7,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_7.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_7",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 76,
+    "brand": "Zara",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.7,
+    "created_at": "2025-02-06T12:05:42.821888Z",
+    "updated_at": "2025-02-10T12:05:42.821888Z"
+  },
+  {
+    "id": 8,
+    "name": "Zipper Fly Jeans",
+    "category": "women",
+    "image": "product_8.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_8",
+    "description": "High-quality material and unique design.",
+    "stock": 79,
+    "brand": "LV",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 3.6,
+    "created_at": "2025-02-27T12:05:42.821888Z",
+    "updated_at": "2025-03-11T12:05:42.821888Z"
+  },
+  {
+    "id": 9,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "women",
+    "image": "product_9.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_9",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 49,
+    "brand": "Gucci",
+    "color": "white",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 3.9,
+    "created_at": "2025-03-23T12:05:42.821888Z",
+    "updated_at": "2025-04-04T12:05:42.821888Z"
+  },
+  {
+    "id": 10,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "women",
+    "image": "product_10.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_10",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 18,
+    "brand": "LV",
+    "color": "white",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 5.0,
+    "created_at": "2025-04-06T12:05:42.821888Z",
+    "updated_at": "2025-04-17T12:05:42.821888Z"
+  },
+  {
+    "id": 11,
+    "name": "Zipper Fly Jeans",
+    "category": "women",
+    "image": "product_11.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_11",
+    "description": "Comfortable and durable design.",
+    "stock": 8,
+    "brand": "Gucci",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 4.5,
+    "created_at": "2025-02-09T12:05:42.821888Z",
+    "updated_at": "2025-02-19T12:05:42.821888Z"
+  },
+  {
+    "id": 12,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "women",
+    "image": "product_12.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_12",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 37,
+    "brand": "Gucci",
+    "color": "white",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.5,
+    "created_at": "2025-03-22T12:05:42.821888Z",
+    "updated_at": "2025-03-25T12:05:42.821888Z"
+  },
+  {
+    "id": 13,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_13.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_13",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 12,
+    "brand": "Zara",
+    "color": "red",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 4.6,
+    "created_at": "2025-01-16T12:05:42.821888Z",
+    "updated_at": "2025-02-04T12:05:42.821888Z"
+  },
+  {
+    "id": 14,
+    "name": "Zipper Fly Jeans",
+    "category": "women",
+    "image": "product_14.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_14",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 5,
+    "brand": "Gucci",
+    "color": "white",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-04-07T12:05:42.821888Z",
+    "updated_at": "2025-04-07T12:05:42.821888Z"
+  },
+  {
+    "id": 15,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "men",
+    "image": "product_15.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_15",
+    "description": "Comfortable and durable design.",
+    "stock": 79,
+    "brand": "LV",
+    "color": "red",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.6,
+    "created_at": "2025-02-09T12:05:42.821888Z",
+    "updated_at": "2025-02-12T12:05:42.821888Z"
+  },
+  {
+    "id": 16,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_16.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_16",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 70,
+    "brand": "Uniqlo",
+    "color": "blue",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 5.0,
+    "created_at": "2025-03-09T12:05:42.821888Z",
+    "updated_at": "2025-03-24T12:05:42.821888Z"
+  },
+  {
+    "id": 17,
+    "name": "Zipper Fly Jeans",
+    "category": "men",
+    "image": "product_17.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_17",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 31,
+    "brand": "Zara",
+    "color": "blue",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-03-21T12:05:42.821888Z",
+    "updated_at": "2025-04-08T12:05:42.821888Z"
+  },
+  {
+    "id": 18,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "men",
+    "image": "product_18.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_18",
+    "description": "Trendy outfit that suits all seasons.",
+    "stock": 100,
+    "brand": "LV",
+    "color": "green",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 3.9,
+    "created_at": "2025-02-24T12:05:42.821888Z",
+    "updated_at": "2025-03-07T12:05:42.821888Z"
+  },
+  {
+    "id": 19,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_19.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_19",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 37,
+    "brand": "Zara",
+    "color": "beige",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 3.5,
+    "created_at": "2025-01-11T12:05:42.821888Z",
+    "updated_at": "2025-01-30T12:05:42.821888Z"
+  },
+  {
+    "id": 20,
+    "name": "Zipper Fly Jeans",
+    "category": "men",
+    "image": "product_20.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_20",
+    "description": "High-quality material and unique design.",
+    "stock": 87,
+    "brand": "LV",
+    "color": "beige",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 4.3,
+    "created_at": "2025-03-16T12:05:42.821888Z",
+    "updated_at": "2025-03-26T12:05:42.821888Z"
+  },
+  {
+    "id": 21,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "men",
+    "image": "product_21.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_21",
+    "description": "High-quality material and unique design.",
+    "stock": 11,
+    "brand": "Zara",
+    "color": "beige",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 4.1,
+    "created_at": "2025-04-01T12:05:42.821888Z",
+    "updated_at": "2025-04-10T12:05:42.821888Z"
+  },
+  {
+    "id": 22,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "men",
+    "image": "product_22.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_22",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 61,
+    "brand": "LV",
+    "color": "white",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-02-25T12:05:42.821888Z",
+    "updated_at": "2025-03-17T12:05:42.821888Z"
+  },
+  {
+    "id": 23,
+    "name": "Zipper Fly Jeans",
+    "category": "men",
+    "image": "product_23.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_23",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 94,
+    "brand": "Zara",
+    "color": "beige",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 4.5,
+    "created_at": "2025-03-05T12:05:42.821888Z",
+    "updated_at": "2025-03-13T12:05:42.821888Z"
+  },
+  {
+    "id": 24,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "men",
+    "image": "product_24.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_24",
+    "description": "Trendy outfit that suits all seasons.",
+    "stock": 55,
+    "brand": "H&M",
+    "color": "beige",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 3.7,
+    "created_at": "2025-04-09T12:05:42.821888Z",
+    "updated_at": "2025-04-26T12:05:42.821888Z"
+  },
+  {
+    "id": 25,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "kid",
+    "image": "product_25.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_25",
+    "description": "High-quality material and unique design.",
+    "stock": 15,
+    "brand": "Uniqlo",
+    "color": "beige",
+    "size": [
+      "L",
+      "XL"
+    ],
+    "rating": 4.1,
+    "created_at": "2025-01-19T12:05:42.821888Z",
+    "updated_at": "2025-01-24T12:05:42.821888Z"
+  },
+  {
+    "id": 26,
+    "name": "Zipper Fly Jeans",
+    "category": "kid",
+    "image": "product_26.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_26",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 4,
+    "brand": "Zara",
+    "color": "beige",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 4.2,
+    "created_at": "2025-02-18T12:05:42.821888Z",
+    "updated_at": "2025-03-01T12:05:42.821888Z"
+  },
+  {
+    "id": 27,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "kid",
+    "image": "product_27.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_27",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 66,
+    "brand": "Uniqlo",
+    "color": "green",
+    "size": [
+      "L",
+      "XL"
+    ],
+    "rating": 4.2,
+    "created_at": "2025-03-13T12:05:42.821888Z",
+    "updated_at": "2025-03-30T12:05:42.821888Z"
+  },
+  {
+    "id": 28,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "kid",
+    "image": "product_28.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_28",
+    "description": "Trendy outfit that suits all seasons.",
+    "stock": 52,
+    "brand": "Uniqlo",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 4.6,
+    "created_at": "2025-03-22T12:05:42.821888Z",
+    "updated_at": "2025-03-24T12:05:42.821888Z"
+  },
+  {
+    "id": 29,
+    "name": "Zipper Fly Jeans",
+    "category": "kid",
+    "image": "product_29.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_29",
+    "description": "Comfortable and durable design.",
+    "stock": 73,
+    "brand": "Gucci",
+    "color": "blue",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-04-11T12:05:42.821888Z",
+    "updated_at": "2025-05-01T12:05:42.821888Z"
+  },
+  {
+    "id": 30,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "kid",
+    "image": "product_30.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_30",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 44,
+    "brand": "Zara",
+    "color": "green",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 4.6,
+    "created_at": "2025-04-07T12:05:42.821888Z",
+    "updated_at": "2025-04-20T12:05:42.821888Z"
+  },
+  {
+    "id": 31,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "kid",
+    "image": "product_31.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_31",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 32,
+    "brand": "LV",
+    "color": "black",
+    "size": [
+      "L",
+      "XL"
+    ],
+    "rating": 3.8,
+    "created_at": "2025-03-09T12:05:42.821888Z",
+    "updated_at": "2025-03-12T12:05:42.821888Z"
+  },
+  {
+    "id": 32,
+    "name": "Zipper Fly Jeans",
+    "category": "kid",
+    "image": "product_32.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_32",
+    "description": "Elegant and stylish for any occasion.",
+    "stock": 57,
+    "brand": "Gucci",
+    "color": "beige",
+    "size": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "rating": 4.8,
+    "created_at": "2025-01-13T12:05:42.821888Z",
+    "updated_at": "2025-01-20T12:05:42.821888Z"
+  },
+  {
+    "id": 33,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "kid",
+    "image": "product_33.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_33",
+    "description": "Comfortable and durable design.",
+    "stock": 20,
+    "brand": "LV",
+    "color": "black",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 4.0,
+    "created_at": "2025-02-28T12:05:42.821888Z",
+    "updated_at": "2025-03-16T12:05:42.821888Z"
+  },
+  {
+    "id": 34,
+    "name": "Graphic Collar Belted Tweed Jacket",
+    "category": "kid",
+    "image": "product_34.png",
+    "new_price": 160.99,
+    "old_price": 190.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "new",
+      "collection",
+      "women"
+    ],
+    "la_id": "la_34",
+    "description": "Comfortable and durable design.",
+    "stock": 26,
+    "brand": "H&M",
+    "color": "black",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 4.5,
+    "created_at": "2025-01-11T12:05:42.821888Z",
+    "updated_at": "2025-01-28T12:05:42.821888Z"
+  },
+  {
+    "id": 35,
+    "name": "Zipper Fly Jeans",
+    "category": "kid",
+    "image": "product_35.png",
+    "new_price": 40.99,
+    "old_price": 50.99,
+    "is_new": false,
+    "is_popular": false,
+    "tags": [
+      "classic",
+      "women"
+    ],
+    "la_id": "la_35",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 51,
+    "brand": "Gucci",
+    "color": "red",
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "rating": 4.8,
+    "created_at": "2025-02-01T12:05:42.821888Z",
+    "updated_at": "2025-02-03T12:05:42.821888Z"
+  },
+  {
+    "id": 36,
+    "name": "Double Pocket Front Corduroy Coat",
+    "category": "kid",
+    "image": "product_36.png",
+    "new_price": 80.99,
+    "old_price": 100.0,
+    "is_new": true,
+    "is_popular": true,
+    "tags": [
+      "coat",
+      "winter",
+      "women"
+    ],
+    "la_id": "la_36",
+    "description": "Perfect for casual or formal wear.",
+    "stock": 17,
+    "brand": "H&M",
+    "color": "white",
+    "size": [
+      "M",
+      "L"
+    ],
+    "rating": 4.0,
+    "created_at": "2025-03-31T12:05:42.821888Z",
+    "updated_at": "2025-03-31T12:05:42.821888Z"
+  }
+]

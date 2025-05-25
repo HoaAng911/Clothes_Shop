@@ -12,7 +12,7 @@ const ShopCategory = (props) => {
     const [maxPrice, setMaxPrice] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 6;
+    const productsPerPage = 8;
 
     useEffect(() => {
         fetchAllProducts();
@@ -106,8 +106,9 @@ const ShopCategory = (props) => {
                 <div className="shopcategory-products">
                     {currentProducts.map((item, index) => (
                         <Item
-                            key={index}
-                            id={item.id}
+
+                            key={item._id}
+                            id={item._id}
                             name={item.name}
                             image={item.image}
                             new_price={item.new_price}

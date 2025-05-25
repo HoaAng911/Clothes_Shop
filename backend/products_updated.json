@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Graphic Collar Belted Tweed Jacket",
+        "category": "women",
+        "image": "product_1.png",
+        "new_price": 160.99,
+        "old_price": 190.0,
+        "is_new": true,
+        "is_popular": true,
+        "tags": [
+            "new",
+            "collection",
+            "women"
+        ],
+        "brand": "BrandName",
+        "description": "A stylish tweed jacket with a belted collar, perfect for all seasons.",
+        "colors": [
+            "Red",
+            "Blue",
+            "Black"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "rating": 4.5,
+        "reviews": [
+            {
+                "user": "Customer1",
+                "comment": "Great jacket, very comfortable!",
+                "rating": 5
+            },
+            {
+                "user": "Customer2",
+                "comment": "Nice design but a bit too tight on the shoulders.",
+                "rating": 4
+            }
+        ],
+        "sold": 150,
+        "stock": 50
+    },
+    {
+        "id": 2,
+        "name": "Damier Accent Collarless Blazer",
+        "category": "women",
+        "image": "product_2.png",
+        "new_price": 160.99,
+        "old_price": 190.0,
+        "is_new": false,
+        "is_popular": true,
+        "tags": [
+            "collection",
+            "women"
+        ],
+        "brand": "BrandName",
+        "description": "A chic collarless blazer perfect for formal or casual wear.",
+        "colors": [
+            "Black",
+            "Gray"
+        ],
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "rating": 4.2,
+        "reviews": [
+            {
+                "user": "Customer3",
+                "comment": "Very sleek and modern, fits well.",
+                "rating": 4
+            },
+            {
+                "user": "Customer4",
+                "comment": "Love the material, but it runs small.",
+                "rating": 3
+            }
+        ],
+        "sold": 120,
+        "stock": 80
+    },
+    {
+        "id": 3,
+        "name": "Asymmetrical Micro Damier Blazer",
+        "category": "women",
+        "image": "product_3.png",
+        "new_price": 160.99,
+        "old_price": 190.0,
+        "is_new": true,
+        "is_popular": false,
+        "tags": [
+            "new",
+            "women"
+        ],
+        "brand": "BrandName",
+        "description": "A unique asymmetrical cut blazer with a modern design.",
+        "colors": [
+            "Navy",
+            "Gray"
+        ],
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "rating": 4.0,
+        "reviews": [
+            {
+                "user": "Customer5",
+                "comment": "Stylish but the fit was not for me.",
+                "rating": 3
+            },
+            {
+                "user": "Customer6",
+                "comment": "Very fashionable and well-made.",
+                "rating": 5
+            }
+        ],
+        "sold": 80,
+        "stock": 100
+    }
+]

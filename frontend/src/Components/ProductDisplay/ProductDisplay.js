@@ -1,35 +1,53 @@
-
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import './ProductDisplay.css';
-import { ShopContext } from '../../Contexts/ShopContext';
 import { useNavigate } from 'react-router-dom';
 import star_icon from '../Assets/star_icon.png';
 import star_dull_icon from '../Assets/star_dull_icon.png';
-const ProductDisplay = (props) => {
-  const { product } = props;
-  const { addToCart } = useContext(ShopContext);
-  const [selectedSize, setSelectedSize] = useState(null);
-  const navigate = useNavigate();
+import { ShopContext } from '../../Contexts/ShopContext';
+import axios from 'axios';
 
-  // ✅ Nếu product chưa có (undefined hoặc null), trả về thông báo loading
-  if (!product || Object.keys(product).length === 0) {
+const ProductDisplay = (props) => {
+  const { productId } = props;  // Giả sử bạn truyền productId qua props
+  const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [notificationMessage, setNotificationMessage] = useState('');
+  const [showNotification, setShowNotification] = useState(false);
+  const navigate = useNavigate();
+  const { addToCart } = useContext(ShopContext);
+
+  const fullImageUrl = useMemo(() => `http://localhost:5000/uploads/${product?.image}`, [product?.image]);
+  useEffect(() => {
+    if (!productId) return; // Tránh log lỗi khi đang chờ productId
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/v1/product/${productId}`);
+        console.log('Dữ liệu sản phẩm:', response.data); // Kiểm tra dữ liệu trả về
+        if (response.data) {
+          setProduct(response.data);
+        } else {
+          console.error('Không có dữ liệu sản phẩm');
+        }
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      }
+    };
+    fetchProduct();
+  }, [productId]);
+
+  if (!product) {
     return <div>Đang tải thông tin sản phẩm...</div>;
   }
 
-  const fullImageUrl = `http://localhost:5000/uploads/${product.image}`; // Ghép URL ảnh
-
   const showDropdownNotification = (message) => {
-    const notification = document.getElementById('notification');
-    if (!notification) return;
-    notification.innerText = message;
-    notification.classList.add('show');
+    setNotificationMessage(message);
+    setShowNotification(true);
     setTimeout(() => {
-      notification.classList.remove('show');
+      setShowNotification(false);
     }, 2000);
   };
 
   const handleSizeToggle = (size) => {
-    setSelectedSize(selectedSize === size ? null : size);
+    setSelectedSize(size === selectedSize ? null : size);
   };
 
   const handleAddToCart = () => {
@@ -37,7 +55,11 @@ const ProductDisplay = (props) => {
       showDropdownNotification('Vui lòng chọn kích thước trước khi thêm vào giỏ hàng.');
       return;
     }
-    addToCart(product.id, selectedSize);
+    if (!product || !product.id) {
+      console.error('Product data is missing or invalid');
+      return;
+    }
+    addToCart(product._id, selectedSize);
     showDropdownNotification(`Đã thêm ${product.name} (Kích thước: ${selectedSize}) vào giỏ hàng!`);
   };
 
@@ -46,15 +68,15 @@ const ProductDisplay = (props) => {
       showDropdownNotification('Vui lòng chọn kích thước trước khi mua.');
       return;
     }
-    addToCart(product.id, selectedSize);
+    addToCart(product._id, selectedSize);
     navigate('/payment');
   };
-  console.log(product.image);
 
   return (
     <div className="productdisplay">
-      <div id="notification"></div>
-
+      {showNotification && (
+        <div id="notification">{notificationMessage}</div>
+      )}
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
           {[...Array(4)].map((_, i) => (
@@ -62,7 +84,7 @@ const ProductDisplay = (props) => {
               key={i}
               src={fullImageUrl}
               alt="Ảnh sản phẩm"
-              onClick={() => window.scrollTo(0, 0)} // Cũng giống như trong Item component
+              onClick={() => window.scrollTo(0, 0)}
             />
           ))}
         </div>
@@ -74,11 +96,9 @@ const ProductDisplay = (props) => {
           />
         </div>
       </div>
-
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
         <div className="productdisplay-right-star">
-          {/* Render đánh giá như bạn đã làm trong Item component */}
           {[...Array(4)].map((_, i) => (
             <img key={i} src={star_icon} alt="Đánh giá" />
           ))}
@@ -90,12 +110,12 @@ const ProductDisplay = (props) => {
           <div className="productdisplay-right-price-new">${product.new_price}</div>
         </div>
         <div className="productdisplay-right-description">
-          Một chiếc áo nhẹ, thường được dệt kim, ôm sát cơ thể, có cổ tròn và tay ngắn, được mặc như một chiếc áo bên trong hoặc áo ngoài.
+          {product.description || 'Mô tả sản phẩm chưa có sẵn.'}
         </div>
         <div className="productdisplay-right-size">
           <h1>Chọn kích thước</h1>
           <div className="productdisplay-right-sizes">
-            {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+            {product.size && product.size.map((size) => (
               <div
                 key={size}
                 className={`size-option ${selectedSize === size ? 'selected' : ''}`}

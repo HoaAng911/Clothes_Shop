@@ -9,7 +9,7 @@ import loginImage from "../Components/Assets/Pasted-20250410-122037_preview_rev_
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { login, isLoggingIn } = useAuthStore(); // Lấy phương thức login và trạng thái isLoggingIn từ store
+  const { login, isLoggingIn, user } = useAuthStore(); // Lấy phương thức login và trạng thái isLoggingIn từ store
   const navigate = useNavigate(); // Để chuyển hướng khi đăng nhập thành công
 
   const initialValues = {
@@ -24,6 +24,14 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     await login(values);  // Gọi phương thức login từ store zustand
+
+    // Lưu thông tin người dùng vào localStorage
+    const loggedInUser = {
+      email: values.email,
+      // Thêm các thông tin khác nếu cần
+    };
+    localStorage.setItem("user", JSON.stringify(loggedInUser)); // Lưu vào localStorage
+
     navigate("/shop"); // Chuyển hướng về trang chủ sau khi đăng nhập thành công
   };
 

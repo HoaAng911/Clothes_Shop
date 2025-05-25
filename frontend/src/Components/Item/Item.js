@@ -7,7 +7,7 @@ const Item = (props) => {
     const fullImageUrl = `http://localhost:5000/uploads/${props.image}`; // Ghép URL ảnh
 
     // Hàm xử lý khi hình ảnh gặp lỗi
-  
+
 
     return (
         <div className='container'>
