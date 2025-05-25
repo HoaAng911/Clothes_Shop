@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const { generateTokenAndSetCookie } = require("../ultis/generateToken.js");
 const jwt = require("jsonwebtoken"); // Đảm bảo đã import jsonwebtoken
 
+
+console.log('generateTokenAndSetCookie typeof:', typeof generateTokenAndSetCookie);
 // =============================
 // 📌 Đăng ký tài khoản mới
 // ============================= 

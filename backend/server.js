@@ -14,7 +14,13 @@ console.log('productRoute typeof:', typeof productRoute);
 console.log('uploadRoutes typeof:', typeof uploadRoutes);
 console.log('orderRoutes typeof:', typeof orderRoutes);
 console.log('cartRoutes typeof:', typeof cartRoutes);
-
+function checkRouter(name, router) {
+    if (typeof router !== 'function') {
+        console.error(`[ERROR] ${name} không phải là function!`);
+    } else {
+        console.log(`[OK] ${name} là function.`);
+    }
+}
 // Khởi tạo ứng dụng Express
 const app = express();
 
@@ -28,7 +34,6 @@ app.use(cors({
 // Middleware cơ bản
 app.use(express.json());  // Để xử lý JSON trong body request
 app.use(cookieParser());  // Để xử lý cookies
-
 // Xử lý static files (ảnh tải lên) từ thư mục uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
