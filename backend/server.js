@@ -59,7 +59,9 @@ app.use('/api/v1/orders', orderRoutes);
 // app.use("/api/v1/products", productRoutes); 
 // app.use("/api/v1/orders", orderRoutes);  // Nếu có routes cho orders
 
-
+app.get('/', (req, res) => {
+    res.send('Hello Thầy Ý ! Đây là API của Ngọc Hoàng.');
+});
 
 // Khởi động server
 app.listen(ENV_VARS.PORT, async () => {
