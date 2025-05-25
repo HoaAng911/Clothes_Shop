@@ -4,6 +4,6 @@ const { uploadImage, uploadImageHandler } = require('../controllers/upload.contr
 const router = express.Router();
 
 // Route tải ảnh lên
-router.post('/', uploadImage, uploadImageHandler);
+router.post('/upload', uploadImage, uploadImageHandler);
 
 module.exports = router;
