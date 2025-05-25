@@ -9,26 +9,27 @@ const productRoute = require('./routes/product.route');
 const uploadRoutes = require('./routes/upload.route');
 const orderRoutes = require('./routes/order.route');
 const cartRoutes = require('./routes/cart.route'); // Đường dẫn cho giỏ hàng
-console.log('authRoutes typeof:', typeof authRoutes);
-console.log('productRoute typeof:', typeof productRoute);
-console.log('uploadRoutes typeof:', typeof uploadRoutes);
-console.log('orderRoutes typeof:', typeof orderRoutes);
-console.log('cartRoutes typeof:', typeof cartRoutes);
-function checkRouter(name, router) {
-    if (typeof router !== 'function') {
-        console.error(`[ERROR] ${name} không phải là function!`);
-    } else {
-        console.log(`[OK] ${name} là function.`);
-    }
-}
+
+
 // Khởi tạo ứng dụng Express
 const app = express();
+const allowedOrigins = [
+    'http://localhost:3000',                 // frontend dev local
+    'https://clothes-shop-ggh5.onrender.com' // frontend deploy trên render
+];
 
-// Cấu hình CORS: Cho phép frontend từ localhost:3000
 app.use(cors({
-    origin: 'http://localhost:3000',  // Cấu hình CORS chỉ cho phép frontend này
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Các phương thức cho phép
-    credentials: true,  // Hỗ trợ cookies (nếu cần cho đăng nhập)
+    origin: function (origin, callback) {
+        // Cho phép requests không có origin (ví dụ: Postman)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
 }));
 
 // Middleware cơ bản
