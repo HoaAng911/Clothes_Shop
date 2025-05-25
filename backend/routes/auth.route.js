@@ -37,16 +37,16 @@ router.post("/logout", async (req, res) => {
     }
 });
 
-// // Kiểm tra người dùng đã xác thực chưa (dùng khi load lại trang, kiểm tra user)
-// router.get("/check-auth", protectRoute, checkAuth);
+// Kiểm tra người dùng đã xác thực chưa (dùng khi load lại trang, kiểm tra user)
+router.get("/check-auth", protectRoute, checkAuth);
 
-// // Cập nhật thông tin người dùng
-// router.put("/update", protectRoute, async (req, res) => {
-//     try {
-//         await updateUser(req, res);
-//     } catch (err) {
-//         res.status(500).json({ success: false, message: "Lỗi khi cập nhật thông tin." });
-//     }
-// });
+// Cập nhật thông tin người dùng
+router.put("/update", protectRoute, async (req, res) => {
+    try {
+        await updateUser(req, res);
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Lỗi khi cập nhật thông tin." });
+    }
+});
 
 module.exports = router;

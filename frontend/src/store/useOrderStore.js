@@ -1,5 +1,6 @@
+
 import { create } from 'zustand';
-import axios from 'axios';
+import axiosInstance from './axiosInstance'; // Đường dẫn phù hợp với dự án của bạn
 
 const useOrderStore = create((set) => ({
     order: null,
@@ -11,7 +12,7 @@ const useOrderStore = create((set) => ({
         set({ loading: true, error: null, success: false });
 
         try {
-            const res = await axios.post('http://localhost:5000/api/v1/order', orderData);
+            const res = await axiosInstance.post('/order', orderData);
             set({ order: res.data, loading: false, success: true });
         } catch (err) {
             console.error('Lỗi tạo đơn hàng:', err);

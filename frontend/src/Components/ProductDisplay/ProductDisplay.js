@@ -5,28 +5,33 @@ import star_icon from '../Assets/star_icon.png';
 import star_dull_icon from '../Assets/star_dull_icon.png';
 import { ShopContext } from '../../Contexts/ShopContext';
 import axios from 'axios';
+import useUploadStore from '../../store/useUploadStore';  // Import store upload
 
 const ProductDisplay = (props) => {
-  const { productId } = props;  // Giả sử bạn truyền productId qua props
+  const { productId } = props;
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [notificationMessage, setNotificationMessage] = useState('');
   const [showNotification, setShowNotification] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const navigate = useNavigate();
   const { addToCart } = useContext(ShopContext);
 
-  const fullImageUrl = useMemo(() => `http://localhost:5000/uploads/${product?.image}`, [product?.image]);
+  // Lấy trạng thái và hàm uploadImage từ store Zustand
+  const { imageUrl, loading, error, uploadImage } = useUploadStore();
+
+  const fullImageUrl = useMemo(() => {
+    // Nếu vừa upload thành công thì ưu tiên hiển thị ảnh mới upload
+    if (imageUrl) return imageUrl;
+    return `http://localhost:5000/uploads/${product?.image}`;
+  }, [product?.image, imageUrl]);
+
   useEffect(() => {
-    if (!productId) return; // Tránh log lỗi khi đang chờ productId
+    if (!productId) return;
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/v1/product/${productId}`);
-        console.log('Dữ liệu sản phẩm:', response.data); // Kiểm tra dữ liệu trả về
-        if (response.data) {
-          setProduct(response.data);
-        } else {
-          console.error('Không có dữ liệu sản phẩm');
-        }
+        if (response.data) setProduct(response.data);
       } catch (error) {
         console.error("Error fetching product data:", error);
       }
@@ -55,7 +60,7 @@ const ProductDisplay = (props) => {
       showDropdownNotification('Vui lòng chọn kích thước trước khi thêm vào giỏ hàng.');
       return;
     }
-    if (!product || !product.id) {
+    if (!product || !product._id) {
       console.error('Product data is missing or invalid');
       return;
     }
@@ -72,11 +77,24 @@ const ProductDisplay = (props) => {
     navigate('/payment');
   };
 
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleUploadClick = () => {
+    if (!selectedFile) {
+      alert('Vui lòng chọn file ảnh trước khi tải lên');
+      return;
+    }
+    uploadImage(selectedFile);
+  };
+
   return (
     <div className="productdisplay">
       {showNotification && (
         <div id="notification">{notificationMessage}</div>
       )}
+
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
           {[...Array(4)].map((_, i) => (
@@ -95,7 +113,18 @@ const ProductDisplay = (props) => {
             alt="Ảnh sản phẩm chính"
           />
         </div>
+
+        {/* Thêm phần upload ảnh */}
+        <div style={{ marginTop: '20px' }}>
+          <input type="file" accept="image/*" onChange={handleFileChange} />
+          <button onClick={handleUploadClick} disabled={loading} style={{ marginLeft: '10px' }}>
+            {loading ? 'Đang tải lên...' : 'Tải ảnh lên'}
+          </button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {imageUrl && <p style={{ color: 'green' }}>Tải ảnh lên thành công!</p>}
+        </div>
       </div>
+
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
         <div className="productdisplay-right-star">
